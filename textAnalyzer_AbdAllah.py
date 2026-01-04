@@ -1,7 +1,8 @@
 import string
-
-with open(r"C:\Users\Softlaptop\Downloads\sample_text.txt","r",encoding="utf-8") as file : #used directory so we can easily replace directory for any text file we want to analyze
-    text= file.read()
+file_path = input("Enter the path to your text file: ")
+with open(file_path, "r", encoding="utf-8") as file:
+    text = file.read()
+    
 
 import re
 from collections import Counter
@@ -23,8 +24,8 @@ def analyze_text(text):
 
     return word_count, sentence_count, top_words
 if __name__ == "__main__":
-    with open(r"C:\Users\Softlaptop\Downloads\sample_text.txt", "r", encoding="utf-8") as file:
-        text = file.read()
+    with open(file_path, "r", encoding="utf-8") as file:
+    text = file.read()
 
     word_count, sentence_count, top_words = analyze_text(text)
 
@@ -33,4 +34,5 @@ if __name__ == "__main__":
     print("Top 10 Most Frequent Words:")
 
     for word, count in top_words:
+
         print(f"{word}: {count}")
